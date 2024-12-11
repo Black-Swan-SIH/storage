@@ -8,6 +8,12 @@ dotenv.config();
 const app = express()
 const __dirname = path.resolve();
 
+app.use((req, res, next) => {
+    console.log(req.url, req.method);
+    next();
+})
+
+
 const PORT = process.env.PORT || 3000
 app.use(cors())
 
